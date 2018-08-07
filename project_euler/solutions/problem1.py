@@ -3,7 +3,7 @@ from project_euler.library import lcm
 
 def get_answer(multiple1=3, multiple2=5, limit=1_000):
     """
-    An algebraic solution exists that leads to an O(1) algorithm (assuming all operations are also O(1)).
+    An algebraic solution exists that leads to an O(1) algorithm (assuming all embedded operations are also O(1)).
     :return: The sum of all number that are multiples of multiple1 and/or multiple2 less than limit
     """
     multiple3 = lcm(multiple1, multiple2)
