@@ -48,7 +48,6 @@ def is_palindrome(number):
     while temp > 0:
         palindrome = (palindrome * 10) + (temp % 10)
         temp //= 10
-
     return number == palindrome
 
 
