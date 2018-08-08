@@ -32,7 +32,7 @@ def dictionary(problem_number):
         3: problem3.get_answer,
         4: problem4.get_answer,
         5: problem5.get_answer,
-        6: Problem6(100),
+        6: problem6.get_answer,
         7: Problem7(10_001),
         8: Problem8("text_files/problem8.txt", 13),
         9: Problem9(1000),
@@ -51,52 +51,6 @@ def dictionary(problem_number):
         206: Problem206()
     }
     return project_euler_dictionary[problem_number]
-
-
-class Problem6:
-    """
-    https://projecteuler.net/problem=6
-
-
-    The sum of the squares of the first ten natural numbers is:
-    1^{2} + 2^{2} + ... + 10^{2} = 385
-
-    The square of the sum of the first ten natural numbers is:
-    (1 + 2 + ... + 10)^{2} = 55^{2} = 3025
-
-    Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum
-    is 3025 − 385 = 2640.
-
-    Find the difference between the sum of the squares of the first one hundred natural numbers
-    and the square of the sum.
-    """
-
-    def __init__(self, bound):
-        """
-        :param bound: 100
-        """
-        self.bound = bound
-        self.answer = None
-
-    @staticmethod
-    def get_answer(bound):
-        """
-
-        :param bound:
-        :return:
-        """
-        sum_of_squares, square_of_sums = 0, 0
-        for i in range(1, bound + 1):
-            sum_of_squares += i ** 2
-            square_of_sums += i
-        return (square_of_sums ** 2) - sum_of_squares
-
-    def run(self):
-        """
-        :return: 25_164_150
-        """
-        self.answer = self.get_answer(self.bound)
-        return self.answer
 
 
 class Problem7:
