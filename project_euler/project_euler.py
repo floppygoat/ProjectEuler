@@ -33,7 +33,7 @@ def dictionary(problem_number):
         4: problem4.get_answer,
         5: problem5.get_answer,
         6: problem6.get_answer,
-        7: Problem7(10_001),
+        7: problem7.get_answer,
         8: Problem8("text_files/problem8.txt", 13),
         9: Problem9(1000),
         10: Problem10(2_000_000),
