@@ -121,3 +121,13 @@ def n_choose_k(n, k):
     :rtype: int
     """
     return reduce(lambda i, j: i * j, range(n - k + 1, n + 1)) // reduce(lambda i, j: i * j, range(1, k + 1))
+
+
+def file_to_matrix(filename, seperator):
+    f = open(filename, "r")
+    strings = f.readlines()
+    f.close()
+    array = []
+    for x in range(0, len(strings)):
+        array.append(list(map(int, strings[x].split(seperator))))
+    return array
