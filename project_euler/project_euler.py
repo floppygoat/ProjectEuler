@@ -35,7 +35,7 @@ def dictionary(problem_number):
         6: problem6.get_answer,
         7: problem7.get_answer,
         8: problem8.get_answer,
-        9: Problem9(1000),
+        9: problem9.get_answer,
         10: Problem10(2_000_000),
         11: Problem11("text_files/problem11.txt", 4),
         12: Problem12(500),
