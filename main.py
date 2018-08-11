@@ -1,5 +1,5 @@
 from project_euler.project_euler import get_problem
 
 # Type in the problem number you want to view
-problem_number = 7
-answer, time = get_problem(problem_number)
+for problem_number in range(1, 9):
+    answer, time = get_problem(problem_number)

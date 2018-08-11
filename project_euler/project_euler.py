@@ -34,7 +34,7 @@ def dictionary(problem_number):
         5: problem5.get_answer,
         6: problem6.get_answer,
         7: problem7.get_answer,
-        8: Problem8("text_files/problem8.txt", 13),
+        8: problem8.get_answer,
         9: Problem9(1000),
         10: Problem10(2_000_000),
         11: Problem11("text_files/problem11.txt", 4),
@@ -51,69 +51,6 @@ def dictionary(problem_number):
         206: Problem206()
     }
     return project_euler_dictionary[problem_number]
-
-
-class Problem7:
-    """
-    https://projecteuler.net/problem=7
-
-
-    By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
-
-    What is the 10 001st prime number?
-    """
-
-    def __init__(self, nth):
-        """
-        :param nth: 10_001
-        """
-        self.nth = nth
-        self.answer = None
-
-    @staticmethod
-    def get_answer(nth):
-        """
-
-        :param nth:
-        :return:
-        """
-        primes = [2]
-        if nth > 1:
-            primes.append(3)
-        if nth > 3:
-
-            count, i = 2, 5
-            while count < nth:
-
-                prime, j = True, 0
-                while prime and j < count and primes[j] <= sqrt(i) + 1:
-                    if i % primes[j] == 0:
-                        prime = False
-                    j += 1
-                if prime:
-                    primes.append(i)
-                    count += 1
-                if count == nth:
-                    return primes[nth - 1]
-
-                prime, j = True, 0
-                while prime and j < count and primes[j] <= sqrt(i + 2) + 1:
-                    if (i + 2) % primes[j] == 0:
-                        prime = False
-                    j += 1
-                if prime:
-                    primes.append(i + 2)
-                    count += 1
-                i += 6
-
-        return primes[nth - 1]
-
-    def run(self):
-        """
-        :return: 104_743
-        """
-        self.answer = self.get_answer(self.nth)
-        return self.answer
 
 
 class Problem8:
