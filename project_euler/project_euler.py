@@ -104,52 +104,6 @@ class Problem8:
         return self.answer
 
 
-class Problem9:
-    """
-    https://projecteuler.net/problem=9
-
-
-    A Pythagorean triplet is a set of three natural numbers, a < b < c, for which:
-
-    a^{2}+ b^{2} = c^{2}
-
-    For example, 3^{2} + 4^{2} = 9 + 16 = 25 = 5^{2}.
-
-    There exists exactly one Pythagorean triplet for which a + b + c = 1000.
-    Find the product abc.
-    """
-
-    def __init__(self, summation):
-        """
-        :param summation: 1_000
-        """
-        self.summation = summation
-        self.answer = None
-
-    @staticmethod
-    def get_answer(summation):
-        """
-
-        :param summation:
-        :return:
-        """
-        for a in range(2, summation):
-            for b in range(1, a):
-                c_squared = a * a + b * b
-                c = int(sqrt(c_squared))
-                if c * c == c_squared:
-                    if a + b + c == summation:
-                        return a * b * c
-        return None
-
-    def run(self):
-        """
-        :return: 31_875_000
-        """
-        self.answer = self.get_answer(self.summation)
-        return self.answer
-
-
 class Problem10:
     """
     https://projecteuler.net/problem=10

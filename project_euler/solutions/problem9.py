@@ -12,6 +12,7 @@ def get_answer(perimeter=1_000):
     :return: The product a * b * c of the first occurring a + b + c = perimeter, if one exists.
                 Else, returns None
     """
+
     for m in range(2, int((-1 + sqrt(1 + 2 * perimeter)) // 2), 2):
         # m is even, so we only test odd values of n.
         for n in range(1, m, 2):
@@ -34,4 +35,5 @@ def get_answer(perimeter=1_000):
                 if 2 * k * (m * m + m * n) == perimeter:
                     # return a * b * c
                     return k * (m ** 2 - n ** 2) * k * (2 * m * n) * k * (m ** 2 + n ** 2)
+    # No a + b + c == perimeter
     return None
