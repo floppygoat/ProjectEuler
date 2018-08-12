@@ -1,6 +1,6 @@
 import time
 
-# project_euler.solutions import * : all files are named in the form 'problem_', where _ is a numeral.
+# project_euler.solutions import * : all files are named in the form 'problem_', where _ is the problem number.
 from project_euler.solutions import *
 
 from project_euler import library
