@@ -49,7 +49,7 @@ def dictionary(problem_number):
         83: Problem83(filename="text_files/problem83.txt"),
         92: Problem92(10_000_000),
         97: problem97.get_answer,
-        206: Problem206()
+        206: problem206.get_answer
     }
     return project_euler_dictionary[problem_number]
 
@@ -335,37 +335,4 @@ class Problem92:
 
     def run(self):
         self.answer = self.get_answer(self.limit)
-        return self.answer
-
-
-class Problem206:
-    """
-    https://projecteuler.net/problem=206
-
-
-    Find the unique positive integer whose square has the form 1_2_3_4_5_6_7_8_9_0,
-    where each “_” is a single digit.
-    """
-
-    def __init__(self):
-        self.answer = None
-
-    @staticmethod
-    def check(number):
-        for digit in range(9, 0, -1):
-            if number % 10 != digit:
-                return False
-            number //= 100
-        return True
-
-    @staticmethod
-    def get_answer():
-        for i in range(int(sqrt(1_92_93_94_95_96_97_98_99_90 // 100)),
-                       int(sqrt(1_02_03_04_05_06_07_08_09_00 // 100)),
-                       -1):
-            if Problem206.check((i * i)):
-                return i * 10
-
-    def run(self):
-        self.answer = self.get_answer()
         return self.answer
