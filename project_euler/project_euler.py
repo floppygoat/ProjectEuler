@@ -41,7 +41,7 @@ def dictionary(problem_number):
         12: problem12.get_answer,
         13: problem13.get_answer,
         92: Problem92(10_000_000),
-        14: Problem14(1_000_000),
+        14: problem14.get_answer,
         52: Problem52(),
         53: Problem53(max_n=100, limit=1_000_000),
         81: Problem81(filename="text_files/problem81.txt"),
@@ -51,89 +51,6 @@ def dictionary(problem_number):
         206: Problem206()
     }
     return project_euler_dictionary[problem_number]
-
-
-class Problem13:
-    """
-    https://projecteuler.net/problem=13
-
-
-    Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
-    """
-
-    def __init__(self, filename, number_of_digits):
-        self.filename = filename
-        self.number_of_digits = number_of_digits
-        self.answer = None
-
-    @staticmethod
-    def get_answer(filename, number_of_digits):
-        f = open(filename, "r")
-        strings = f.readlines()
-        f.close()
-        summation = 0
-        for x in range(len(strings)):
-            summation += int(strings[x].replace('\n', ''))
-        return int(str(summation)[:number_of_digits])
-
-    def run(self):
-        self.answer = self.get_answer(self.filename, self.number_of_digits)
-        return self.answer
-
-
-class Problem14:
-    """
-    https://projecteuler.net/problem=14
-
-
-    The following iterative sequence is defined for the set of positive integers:
-
-    n → n/2 (n is even)
-    n → 3n + 1 (n is odd)
-
-    Using the rule above and starting with 13, we generate the following sequence:
-
-    13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
-    It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms.
-    Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.
-
-    Which starting number, under one million, produces the longest chain?
-
-    NOTE: Once the chain starts the terms are allowed to go above one million.
-    """
-
-    def __init__(self, bound):
-        self.bound = bound
-        self.answer = None
-
-    @staticmethod
-    def get_answer(bound):
-        max_count, longest = 0, 0
-        i = 1
-        sequence = [0] * bound
-        sequence[0] = 1
-        while i < bound:
-            x, count = i, 0
-            while True:
-                if x < len(sequence) and sequence[x - 1] != 0:
-                    count += sequence[x - 1]
-                    sequence[i - 1] = count
-                    break
-                if x % 2 == 0:
-                    x //= 2
-                    count += 1
-                else:
-                    x = ((3 * x) + 1) // 2
-                    count += 2
-            if count > max_count:
-                max_count = count
-                longest = i
-            i += 1
-        return longest
-
-    def run(self):
-        self.answer = self.get_answer(self.bound)
-        return self.answer
 
 
 class Problem52:
