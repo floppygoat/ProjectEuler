@@ -48,7 +48,7 @@ def dictionary(problem_number):
         82: Problem82(filename="text_files/problem82.txt"),
         83: Problem83(filename="text_files/problem83.txt"),
         92: Problem92(10_000_000),
-        97: Problem97(7_830_457, 28_433, 10),
+        97: problem97.get_answer,
         206: Problem206()
     }
     return project_euler_dictionary[problem_number]
@@ -335,36 +335,6 @@ class Problem92:
 
     def run(self):
         self.answer = self.get_answer(self.limit)
-        return self.answer
-
-
-class Problem97:
-    """
-    https://projecteuler.net/problem=97
-
-
-    The first known prime found to exceed one million digits was discovered in 1999,
-    and is a Mersenne prime of the form 2^{6972593}−1; it contains exactly 2,098,960 digits.
-    Subsequently other Mersenne primes, of the form 2^{p}−1, have been found which contain more digits.
-
-    However, in 2004 there was found a massive non-Mersenne prime which contains 2,357,207 digits:
-    28433×2^{7830457}+1.
-
-    Find the last ten digits of this prime number.
-    """
-
-    def __init__(self, power, multiple, amount_of_digits):
-        self.power = power
-        self.multiple = multiple
-        self.amount_of_digits = amount_of_digits
-        self.answer = None
-
-    @staticmethod
-    def get_answer(power, multiple, amount_of_digits):
-        return (multiple * pow(2, power, 10 ** amount_of_digits) + 1) % (10 ** amount_of_digits)
-
-    def run(self):
-        self.answer = self.get_answer(self.power, self.multiple, self.amount_of_digits)
         return self.answer
 
 
