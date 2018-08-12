@@ -35,5 +35,5 @@ def get_answer(perimeter=1_000):
                 if 2 * k * (m * m + m * n) == perimeter:
                     # return a * b * c
                     return k * (m ** 2 - n ** 2) * k * (2 * m * n) * k * (m ** 2 + n ** 2)
-    # No a + b + c == perimeter
+    # No a + b + c == perimeter exists
     return None
