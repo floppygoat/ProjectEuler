@@ -16,9 +16,9 @@ def get_problem(problem_number):
     except KeyError:
         answer = None
         runtime = 0
-    except AttributeError:
-        answer = None
-        runtime = 0
+    # except AttributeError:
+        # answer = None
+        # runtime = 0
     print()
     print("The answer to Problem", problem_number, "is:", answer)
     print("The elapsed time is", runtime, "seconds")
@@ -40,13 +40,14 @@ def dictionary(problem_number):
         11: problem11.get_answer,
         12: problem12.get_answer,
         13: problem13.get_answer,
-        92: Problem92(10_000_000),
         14: problem14.get_answer,
+        15: problem15.get_answer,
         52: Problem52(),
         53: Problem53(max_n=100, limit=1_000_000),
         81: Problem81(filename="text_files/problem81.txt"),
         82: Problem82(filename="text_files/problem82.txt"),
         83: Problem83(filename="text_files/problem83.txt"),
+        92: Problem92(10_000_000),
         97: Problem97(7_830_457, 28_433, 10),
         206: Problem206()
     }

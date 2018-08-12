@@ -1,4 +1,4 @@
-def get_answer_slt(bound=1_000_000):
+def get_answer(bound=1_000_000):
     """
     :return: The number with the longest Collatz sequence less than bound
     """
