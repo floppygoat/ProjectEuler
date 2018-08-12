@@ -10,6 +10,5 @@ def get_answer(filename="text_files/problem13.txt", number_of_digits=10):
     f.close()
     summation = 0
     for x in range(len(strings)):
-        strings[x] = int(strings[x])
-        summation += strings[x]
+        summation += int(strings[x])
     return int(str(summation)[:number_of_digits])
