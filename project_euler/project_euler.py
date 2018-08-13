@@ -49,7 +49,8 @@ def dictionary(problem_number):
         83: Problem83(filename="text_files/problem83.txt"),
         92: Problem92(10_000_000),
         97: problem97.get_answer,
-        206: problem206.get_answer
+        206: problem206.get_answer,
+        493: problem493.get_answer
     }
     return project_euler_dictionary[problem_number]
 
