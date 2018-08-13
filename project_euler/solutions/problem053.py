@@ -1,4 +1,4 @@
-def get_answer(max_n=1000, limit=1_000_000):
+def get_answer(max_n=100, limit=1_000_000):
     count = 0
     pascals_triangle = [[1]]
     for n in range(1, max_n + 1):
