@@ -1,7 +1,7 @@
 from project_euler.library import file_to_matrix
 
 
-def get_answer(filename="text_files/problem82.txt"):
+def get_answer(filename="text_files/problem082.txt"):
     matrix = file_to_matrix(filename, ",")
     # Assume square matrix
     size = len(matrix)

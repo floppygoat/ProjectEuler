@@ -1,4 +1,4 @@
-def get_answer(filename="text_files/problem8.txt", length=13):
+def get_answer(filename="text_files/problem008.txt", length=13):
     """
     No fancy Math, just simple for loops.
     :return: The maximum product of length adjacent digits in the number found in filename.

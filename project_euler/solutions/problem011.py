@@ -1,7 +1,7 @@
 from project_euler.library import file_to_matrix
 
 
-def get_answer(filename="text_files/problem11.txt", length=4):
+def get_answer(filename="text_files/problem011.txt", length=4):
     """
     This is a brute-force solution.  It checks every possible sequence of adjacent numbers once and only once.
     :return: The greatest product of length adjacent numbers in the matrix found in file filename.
