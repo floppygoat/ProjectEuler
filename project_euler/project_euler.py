@@ -13,15 +13,15 @@ def get_problem(problem_number):
         start_time = time.perf_counter()
         answer = func()
         runtime = time.perf_counter() - start_time
+        print()
+        print("The answer to Problem", problem_number, "is:", answer)
+        print("The elapsed time is", runtime, "seconds")
     except KeyError:
         answer = None
         runtime = 0
-    # except AttributeError:
-        # answer = None
-        # runtime = 0
-    print()
-    print("The answer to Problem", problem_number, "is:", answer)
-    print("The elapsed time is", runtime, "seconds")
+    except AttributeError:
+        answer = None
+        runtime = 0
     return answer, runtime
 
 
