@@ -47,7 +47,7 @@ def dictionary(problem_number):
         81: Problem81(filename="text_files/problem81.txt"),
         82: Problem82(filename="text_files/problem82.txt"),
         83: Problem83(filename="text_files/problem83.txt"),
-        92: Problem92(10_000_000),
+        92: problem92.get_answer,
         97: problem97.get_answer,
         206: problem206.get_answer,
         493: problem493.get_answer
@@ -272,68 +272,4 @@ class Problem83:
 
     def run(self):
         self.answer = self.get_answer(self.filename)
-        return self.answer
-
-
-class Problem92:
-    """
-    https://projecteuler.net/problem=92
-
-
-    A number chain is created by continuously adding the square of the digits in a number to form a new number
-    until it has been seen before.
-
-    For example,
-
-    44 → 32 → 13 → 10 → 1 → 1
-    85 → 89 → 145 → 42 → 20 → 4 → 16 → 37 → 58 → 89
-
-    Therefore any chain that arrives at 1 or 89 will become stuck in an endless loop.
-    What is most amazing is that EVERY starting number will eventually arrive at 1 or 89.
-
-    How many starting numbers below ten million will arrive at 89?
-    """
-
-    def __init__(self, limit):
-        self.limit = limit
-        self.answer = None
-
-    @staticmethod
-    def get_answer(limit):
-        # TODO Optimize
-        sequences = [0] * limit
-        sequences[1] = 1
-        sequences[89] = 89
-        count = 0
-        for i in range(1, 81 * (len(str(limit)) - 1) + 1):
-            seq = []
-            while True:
-                if sequences[i] == 0:
-                    seq.append(i)
-                    j = 0
-                    while i > 0:
-                        j += pow(i % 10, 2)
-                        i //= 10
-                    i = j
-                elif sequences[i] == 89:
-                    count += 1
-                    for k in seq:
-                        sequences[k] = 89
-                    break
-                else:
-                    for k in seq:
-                        sequences[k] = 1
-                    break
-        for i in range(81 * (len(str(limit)) - 1) + 1, limit):
-            j = 0
-            while i > 0:
-                j += pow(i % 10, 2)
-                i //= 10
-            i = j
-            if sequences[i] == 89:
-                count += 1
-        return count
-
-    def run(self):
-        self.answer = self.get_answer(self.limit)
         return self.answer
