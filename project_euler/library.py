@@ -1,4 +1,4 @@
-from math import sqrt
+from math import sqrt, log
 from functools import reduce
 
 
@@ -83,6 +83,56 @@ def list_primes(limit):
     for i in range((int(sqrt(limit)) // 2) + 1, len(sieve)):
         if sieve[i]:
             primes.append((i * 2) + 1)
+
+    return primes
+
+
+def list_n_primes(n):
+    """
+    Uses the Sieve of Eratosthenes with only odd numbers to find all primes less than limit
+    :type n: int
+    :return: prime numbers less than limit (and greater than one)
+    :rtype: list
+    """
+    if n < 6:
+        primes = {
+            1: [2],
+            2: [2, 3],
+            3: [2, 3, 5],
+            4: [2, 3, 5, 7],
+            5: [2, 3, 5, 7, 11]
+        }
+        return primes[n]
+
+    limit = int(n * (log(n) + log(log(n)))) + 1
+    count = 1
+
+    # To account for the number 2
+    primes = [2]
+
+    # A sieve that only contains odd numbers (the only even prime number is 2).
+    # Sieve indices i correspond to the number (i * 2) + 1
+    sieve = [True] * (limit // 2)
+
+    # 1 is not a prime number
+    sieve[0] = False
+
+    # Make the sieve and find all primes less than sqrt(limit)
+    # It is only possible only numbers less than or equal sqrt(limit) to contribute to the sieve
+    for i in range((int(sqrt(limit)) // 2) + 1):
+        if sieve[i]:
+            primes.append((i * 2) + 1)
+            count += 1
+            for j in range((i * 3) + 1, limit // 2, (i * 2) + 1):
+                sieve[j] = False
+
+    # Find all remaining prime numbers in the sieve that are greater than sqrt(limit)
+    for i in range((int(sqrt(limit)) // 2) + 1, len(sieve)):
+        if sieve[i]:
+            primes.append((i * 2) + 1)
+            count += 1
+            if count == n:
+                return primes
 
     return primes
 

@@ -1,10 +1,6 @@
-import time
-
 # project_euler.solutions import * : all files are named in the form 'problem_', where _ is the problem number.
 from project_euler.solutions import *
-
-from project_euler import library
-from math import sqrt, inf
+import time
 
 
 def get_problem(problem_number):
@@ -15,7 +11,7 @@ def get_problem(problem_number):
         runtime = time.perf_counter() - start_time
         print()
         print("The answer to Problem", problem_number, "is:", answer)
-        print("The elapsed time is", runtime, "seconds")
+        print("Elapsed time:", runtime, "seconds")
     except KeyError:
         answer = None
         runtime = 0
@@ -50,6 +46,7 @@ def dictionary(problem_number):
         92: problem092.get_answer,
         97: problem097.get_answer,
         206: problem206.get_answer,
-        493: problem493.get_answer
+        493: problem493.get_answer,
+        500: problem500.get_answer
     }
     return project_euler_dictionary[problem_number]
