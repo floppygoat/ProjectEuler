@@ -28,6 +28,12 @@ def get_answer(bound=1_000_000):
                     if y < bound:
                         sequence[y - 1] = c
                 count += sequence[x - 1]
+
+                # If longest sequence: update longest and max_count
+                if count > max_count:
+                    max_count = count
+                    longest = i
+
                 sequence[i - 1] = count
                 break
 
@@ -40,7 +46,4 @@ def get_answer(bound=1_000_000):
                 x = ((3 * x) + 1) // 2
                 count += 2
 
-        if count > max_count:
-            max_count = count
-            longest = i
     return longest
