@@ -6,6 +6,7 @@ def get_answer(bound=1_000_000):
     sequence = [0] * bound
     sequence[0] = 1
 
+    # The longest sequence must be greater than bound // 2.  Therefore no point looking at values less than bound // 2
     for i in range(bound // 2, bound):
         x, count = i, 0
         seq = []

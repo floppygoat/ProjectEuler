@@ -15,7 +15,7 @@ def get_problem(problem_number):
     except KeyError:
         answer = None
         runtime = 0
-    except AttributeError:
+    #except AttributeError:
         answer = None
         runtime = 0
     return answer, runtime
@@ -38,6 +38,7 @@ def dictionary(problem_number):
         13: problem013.get_answer,
         14: problem014.get_answer,
         15: problem015.get_answer,
+        16: problem016.get_answer,
         41: problem041.get_answer,
         43: problem043.get_answer,
         52: problem052.get_answer,
