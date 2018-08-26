@@ -39,6 +39,7 @@ def dictionary(problem_number):
         14: problem014.get_answer,
         15: problem015.get_answer,
         16: problem016.get_answer,
+        22: problem022.get_answer,
         41: problem041.get_answer,
         42: problem042.get_answer,
         43: problem043.get_answer,
