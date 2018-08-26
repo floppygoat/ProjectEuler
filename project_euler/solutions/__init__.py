@@ -15,6 +15,7 @@ __all__ = [
     'problem014',
     'problem015',
     'problem016',
+    'problem018',
     'problem022',
     'problem041',
     'problem042',
