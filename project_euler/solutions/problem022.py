@@ -2,6 +2,9 @@ UPPER_CASE_CORRECTION = -64
 
 
 def get_answer(filename="text_files/problem022.txt"):
+    """
+    :return: The name score (row * (sum of numerical letter values (i.e a = 1, z = 26))) of the <filename>.
+    """
     summation = 0
     f = open(filename, "r")
     string = f.read().replace("\"", "").split(",")

@@ -2,6 +2,12 @@ from project_euler.library import file_to_matrix
 
 
 def get_answer(filename="text_files/problem081.txt"):
+    """
+    Uses a similar algorithm as in problem 18,
+    except that we first set up the bottom and rightmost columns,
+    and then go along the bottom left to top right diagonals.
+    :return: The minimum sum from top left to bottom right moving only right and down.
+    """
     matrix = file_to_matrix(filename, ",")
     # Assume square matrix
     size = len(matrix)

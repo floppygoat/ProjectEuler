@@ -146,7 +146,7 @@ def number_of_divisors(num, primes=None):
     :rtype: int
     """
     if primes is None:
-        primes = list_primes((num // 2) + 1)
+        primes = list_primes((num // 2) + 2)
     itr = iter(primes)
     divisor_count = 1
     while num > 1:
@@ -160,6 +160,10 @@ def number_of_divisors(num, primes=None):
         if count != 0:
             divisor_count *= count + 1
     return divisor_count
+
+
+def is_prime(num, primes=None):
+    return 2 == number_of_divisors(num, primes)
 
 
 def n_choose_k(n, k):
