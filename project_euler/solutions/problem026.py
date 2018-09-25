@@ -30,7 +30,7 @@ def cycle_length(divisor):
     We go through the list backwards until we encounter the number.
     We then return the length of that cycle.
     :param divisor: The number to determine how long its reciprocal decimal cycle is.
-    :return:
+    :return: The length of the repeating decimal cycle.
     """
     dividend = 1
     cycle_list = []
