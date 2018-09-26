@@ -1,25 +1,25 @@
-# project_euler.solutions import * : all files are named in the form 'problem_', where _ is the problem number.
+# project_euler.solutions import * : all files are named in the form 'problem_', where _ is the problem num.
 from project_euler.solutions import *
 import time
 
 
 def get_problem(problem_number):
-    try:
-        func = dictionary(problem_number)
-        start_time = time.perf_counter()
-        answer = func()
-        runtime = time.perf_counter() - start_time
-        print()
-        print("The answer to Problem", problem_number, "is:", answer)
-        print("Elapsed time:", runtime, "seconds")
-    except KeyError:
+    '''try:'''
+    func = dictionary(problem_number)
+    start_time = time.perf_counter()
+    answer = func()
+    runtime = time.perf_counter() - start_time
+    print()
+    print("The answer to Problem", problem_number, "is:", answer)
+    print("Elapsed time:", runtime, "seconds")
+    '''except KeyError:
         answer = None
         runtime = 0
         # print("error")
     except AttributeError:
         answer = None
         runtime = 0
-        # print("error")
+        # print("error")'''
     return answer, runtime
 
 
@@ -77,6 +77,7 @@ def dictionary(problem_number):
         50: problem050.get_answer,
         52: problem052.get_answer,
         53: problem053.get_answer,
+        54: problem054.get_answer,
         55: problem055.get_answer,
         56: problem056.get_answer,
         57: problem057.get_answer,
