@@ -15,8 +15,7 @@ def get_answer(filename="text_files/problem054.txt"):
 class PokerHand:
     hand = []
     highest = []
-    score = 0
-    val_rank = 0
+    score = [0, 0]
 
     def __init__(self, cards):
         self.hand = cards
@@ -24,26 +23,16 @@ class PokerHand:
         self.score, self.val_rank = self.calc_score()
 
     def winner(self, o_hand):
-        if self.score > o_hand.score:
-            return True
-        if self.score < o_hand.score:
-            return False
-        if self.val_rank > o_hand.val_rank:
-            return True
-        if self.val_rank < o_hand.val_rank:
-            return False
+        if self.score[0] != o_hand.score[0]:
+            return self.score > o_hand.score
+        if self.score[1] != o_hand.score[1]:
+            return self.score[1] > o_hand.score[1]
         for c, oc in zip(self.highest, o_hand.highest):
-            if c > oc:
-                return True
-            if c < oc:
-                return False
+            if c != oc:
+                return c > oc
         return False
 
     def calc_score(self):
-        same_suit = reduce((lambda x, y: x and y), list(map((lambda x: x.suit == self.hand[0].suit), self.hand)))
-        consec = reduce((lambda x, y: x and y), [self.highest[i] == self.highest[i - 1] - 1 for i in range(1, 5)])
-        if same_suit and consec:
-            return 8, self.highest[0]
 
         def fours():
             if self.highest[1] == self.highest[2] and self.highest[2] == self.highest[3]:
@@ -79,25 +68,39 @@ class PokerHand:
             if self.highest[1] == self.highest[0] and self.highest[2] != self.highest[1]:
                 pair_max = self.highest[0]
                 num_pair += 1
-            return num_pair, pair_max
+            return [num_pair, pair_max]
 
+        same_suit = reduce((lambda x, y: x and y), list(map((lambda x: x.suit == self.hand[0].suit), self.hand)))
+        consec = reduce((lambda x, y: x and y), [self.highest[i] == self.highest[i - 1] - 1 for i in range(1, 5)])
+
+        # Straight Flush
+        if same_suit and consec:
+            return 8, self.highest[0]
+        # Four-of-a-Kind
         four = fours()
         if four[0]:
             return 7, four[1]
+        # Full House
         three = threes()
         pair = pairs()
         if three[0] and pair[0] == 1:
             return 6, max(three[1], pair[1])
+        # Flush
         if same_suit:
             return 5, self.highest[0]
+        # Straight
         if consec:
             return 4, self.highest[0]
+        # Three-of-a-Kind
         if three[0]:
             return 3, three[1]
+        # Two Pairs
         if pair[0] == 2:
             return 2, pair[1]
+        # One Pair
         if pair[0] == 1:
             return 1, pair[1]
+        # Highest Card
         else:
             return 0, self.highest[0]
 

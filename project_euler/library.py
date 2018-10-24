@@ -38,13 +38,13 @@ def lcm(a, b):
 def is_palindrome(number):
     """
     :type number: int
-    :return: True if number is a palindrome in base 10, False otherwise
+    :return: True if num is a palindrome in base 10, False otherwise
     :rtype: bool
     """
     palindrome = 0
     temp = number
 
-    # Reverse the number
+    # Reverse the num
     while temp > 0:
         palindrome = (palindrome * 10) + (temp % 10)
         temp //= 10
@@ -61,14 +61,14 @@ def list_primes(limit):
     if limit < 2:
         return []
 
-    # To account for the number 2
+    # To account for the num 2
     primes = [2]
 
-    # A sieve that only contains odd numbers (the only even prime number is 2).
-    # Sieve indices i correspond to the number (i * 2) + 1
+    # A sieve that only contains odd numbers (the only even prime num is 2).
+    # Sieve indices i correspond to the num (i * 2) + 1
     sieve = [True] * (limit // 2)
 
-    # 1 is not a prime number
+    # 1 is not a prime num
     sieve[0] = False
 
     # Make the sieve and find all primes less than sqrt(limit)
@@ -107,14 +107,14 @@ def list_n_primes(n):
     limit = int(n * (log(n) + log(log(n)))) + 1
     count = 1
 
-    # To account for the number 2
+    # To account for the num 2
     primes = [2]
 
-    # A sieve that only contains odd numbers (the only even prime number is 2).
-    # Sieve indices i correspond to the number (i * 2) + 1
+    # A sieve that only contains odd numbers (the only even prime num is 2).
+    # Sieve indices i correspond to the num (i * 2) + 1
     sieve = [True] * (limit // 2)
 
-    # 1 is not a prime number
+    # 1 is not a prime num
     sieve[0] = False
 
     # Make the sieve and find all primes less than sqrt(limit)
@@ -140,9 +140,9 @@ def list_n_primes(n):
 def number_of_divisors(num, primes=None):
     """
     :type num: int
-    :param primes: list of primes with at least all positive prime numbers less than (number // 2 + 1)
+    :param primes: list of primes with at least all positive prime numbers less than (num // 2 + 1)
     :type primes: list
-    :return: the number of divisors num has, including itself and 1
+    :return: the num of divisors num has, including itself and 1
     :rtype: int
     """
     if primes is None:
