@@ -18,8 +18,7 @@ def gcd(a, b):
             b %= a
     if a == 0:
         return b
-    else:
-        return a
+    return a
 
 
 def lcm(a, b):
@@ -72,7 +71,7 @@ def list_primes(limit):
     sieve[0] = False
 
     # Make the sieve and find all primes less than sqrt(limit)
-    # It is only possible only numbers less than or equal sqrt(limit) to contribute to the sieve
+    # Only less than or equal sqrt(limit) contribute to the sieve
     for i in range((int(sqrt(limit)) // 2) + 1):
         if sieve[i]:
             primes.append((i * 2) + 1)
@@ -80,6 +79,7 @@ def list_primes(limit):
                 sieve[j] = False
 
     # Find all remaining prime numbers in the sieve that are greater than sqrt(limit)
+    # and less than limit
     for i in range((int(sqrt(limit)) // 2) + 1, len(sieve)):
         if sieve[i]:
             primes.append((i * 2) + 1)
@@ -104,6 +104,7 @@ def list_n_primes(n):
         }
         return primes[n]
 
+    # The upper bound for the nth prime number is n * (log(n) + log(log(n))))
     limit = int(n * (log(n) + log(log(n)))) + 1
     count = 1
 
@@ -118,7 +119,7 @@ def list_n_primes(n):
     sieve[0] = False
 
     # Make the sieve and find all primes less than sqrt(limit)
-    # It is only possible only numbers less than or equal sqrt(limit) to contribute to the sieve
+    # Only less than or equal sqrt(limit) contribute to the sieve
     for i in range((int(sqrt(limit)) // 2) + 1):
         if sieve[i]:
             primes.append((i * 2) + 1)
@@ -127,6 +128,7 @@ def list_n_primes(n):
                 sieve[j] = False
 
     # Find all remaining prime numbers in the sieve that are greater than sqrt(limit)
+    # and less than limit
     for i in range((int(sqrt(limit)) // 2) + 1, len(sieve)):
         if sieve[i]:
             primes.append((i * 2) + 1)
@@ -185,3 +187,12 @@ def file_to_matrix(filename, separator):
     for x in range(0, len(strings)):
         array.append(list(map(int, strings[x].split(separator))))
     return array
+
+
+def digit_factorial(number):
+    digit_fact = [1, 1, 2, 6, 24, 120, 720, 5_040, 40_320, 362_880]
+    answer = 0
+    while number > 0:
+        digit, number = number % 10, number // 10
+        answer += digit_fact[digit]
+    return answer
