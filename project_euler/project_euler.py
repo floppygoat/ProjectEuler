@@ -89,6 +89,7 @@ def dictionary(problem_number):
         92: problem092.get_answer,
         97: problem097.get_answer,
         206: problem206.get_answer,
+        315: problem315.get_answer,
         493: problem493.get_answer,
         500: problem500.get_answer
     }
