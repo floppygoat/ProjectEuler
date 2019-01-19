@@ -41,7 +41,6 @@ def get_answer(lower_bound=10_000_000, upper_bound=20_000_000):
     For Max's, the algorithm is the amount of LEDs of the first number,
                 + the amount of LEDS of the last number,
                 + the number of LEDs that are different between each number in the cycle
-
     Since the maximum value the second digit in the cycle is 64 (in this example), we calculate the full
     cycle for numbers up to 64, then for prime numbers between 10_000_000 and 20_000_000, once we know the
     second number in the cycle, simply add up the remaining amount of LEDs that will be displayed.
