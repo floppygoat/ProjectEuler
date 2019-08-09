@@ -1,9 +1,15 @@
 from math import pi, sqrt
 
 
-def get_answer(a=2, b=1):
+def get_answer(a=3, b=1):
     """
-comments k
+    This question is made tricky because the surrounding chocolate covering is not an ellipsoid
+    and (I believe) cannot be represented in closed form.
+    What I did was let y = 0, and x >= 0, giving me an ellipse in the x-z plane.
+    I then parameterized the ellipse, and using the normal vector, calculated various points
+    on the edge of the new chocolate covering curve.
+    Using a solid of revolution, I was then able to calculate the volume
+    of the chocolate coating minus the candy.
     """
     area = 0
     h = 0.000001
@@ -24,6 +30,12 @@ comments k
 
 
 def get_normal(a, b, x):
+    """
+    This gives the negative normal vector N-hat.
+    Letting r(x) = <x, b/a sqrt(a^2 - x^2)>,
+    then T-hat = r'/|r'|, and N-hat = T' / |T'|.
+
+    """
     bsq = b * b
     asq = a * a
     xsq = x * x
@@ -40,4 +52,9 @@ def area_of_revolution_eclipse(a, b):
 
 
 def trap_individual_sum(h, b1, b2):
+    """
+    An individual sum using the trapezoid rule.
+    The midpoint rule (or simpsons rule) cannot easily be used because the step size is different
+    every time.
+    """
     return 1/2 * h * (b1 + b2)

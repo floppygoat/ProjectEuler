@@ -1,5 +1,4 @@
 from project_euler.library import list_primes
-import time
 
 #    -----0-----
 #    =         =

@@ -75,6 +75,7 @@ def dictionary(problem_number):
         48: problem048.get_answer,
         49: problem049.get_answer,
         50: problem050.get_answer,
+        51: problem051.get_answer,
         52: problem052.get_answer,
         53: problem053.get_answer,
         54: problem054.get_answer,
@@ -92,6 +93,6 @@ def dictionary(problem_number):
         315: problem315.get_answer,
         449: problem449.get_answer,
         493: problem493.get_answer,
-        500: problem500.get_answer
+        500: problem500.get_answer,
     }
     return project_euler_dictionary[problem_number]
